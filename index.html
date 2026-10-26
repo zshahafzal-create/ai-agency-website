@@ -355,5 +355,22 @@
     <div class="wrap footer-bottom"><span>© <span id="year">2026</span> ZeroWait AI. All rights reserved.</span><span>Conversations Without Delays.</span></div>
   </footer>
 
+<script>
+  window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
+  (function(d,t) {
+    var BASE_URL="https://crm.secondbrainos.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: '8xtmbZRGHQB9qHDsBubQb9Em',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+</script>
+
 </body>
 </html>
