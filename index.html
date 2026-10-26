@@ -16,6 +16,109 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" href="assets/zerowait-circuit-hero.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ZeroWait AI enhancements; supplements the existing site stylesheet. */
+    :root { --zw-electric: #2979ff; --zw-red: #fa596b; }
+    .brand-name > span { color: var(--zw-electric) !important; -webkit-text-fill-color: var(--zw-electric) !important; }
+    .nav-links a { position: relative; display: inline-flex; align-items: center; border-radius: 8px; padding: 8px 3px; transition: color .22s ease, text-shadow .22s ease, filter .22s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: #80bbff; transform: translateY(-2px); text-shadow: 0 0 7px rgba(63,148,255,.9), 0 0 19px rgba(43,110,255,.65); filter: drop-shadow(0 0 6px rgba(39,117,255,.35)); }
+    .nav-links a::after { content: ''; position: absolute; left: 3px; right: 3px; bottom: 1px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #2979ff, #8b63ff); transform: scaleX(0); transform-origin: center; transition: transform .22s ease; box-shadow: 0 0 11px rgba(74,131,255,.8); }
+    .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+    .hero-title-blue { color: var(--zw-electric); -webkit-text-fill-color: var(--zw-electric); display: block; }
+    .eyebrow-dot, .visual-overlay .live-dot { position: relative; isolation: isolate; background: #54a2ff !important; box-shadow: 0 0 11px 3px rgba(41,121,255,.48); }
+    .eyebrow-dot::before, .eyebrow-dot::after, .visual-overlay .live-dot::before, .visual-overlay .live-dot::after { content: ""; position: absolute; inset: -5px; border: 1px solid rgba(91,173,255,.65); border-radius: 50%; pointer-events: none; animation: zw-radar 2.8s ease-out infinite; }
+    .eyebrow-dot::after, .visual-overlay .live-dot::after { animation-delay: 1.4s; }
+    @keyframes zw-radar { 0% { transform: scale(.55); opacity: .9; } 100% { transform: scale(2.6); opacity: 0; } }
+    .btn-solution { position: relative; display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent !important; background: linear-gradient(#07172a,#07172a) padding-box, conic-gradient(from var(--zw-angle,0deg),#2979ff,#955aff,#2979ff,#955aff,#2979ff) border-box !important; color: #fff !important; border-radius: 999px; animation: zw-outline 4s linear infinite; transition: transform .2s ease, box-shadow .2s ease; }
+    .btn-solution:hover, .btn-solution:focus-visible { transform: translateY(-2px); box-shadow: 0 0 20px rgba(67,113,255,.4); }
+    @property --zw-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    @keyframes zw-outline { to { --zw-angle: 360deg; } }
+    .hero-trust .trust-item { display: inline-flex; align-items: center; gap: .6rem; }
+    .hero-trust .trust-icon { width: 32px; height: 32px; display: inline-grid; place-items: center; color: #62aaff; border: 1px solid rgba(66,143,255,.32); border-radius: 11px; background: radial-gradient(circle at 35% 25%,rgba(75,118,255,.24),rgba(15,24,50,.55)); box-shadow: inset 0 0 14px rgba(49,107,255,.13),0 0 14px rgba(49,107,255,.08); flex-shrink: 0; transition: transform .2s, box-shadow .2s; }
+    .hero-trust .trust-item:hover .trust-icon { transform: translateY(-2px); box-shadow: 0 0 18px rgba(41,121,255,.37); }
+    .zw-icon { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    #problem .icon-box { color: var(--zw-red) !important; border-color: rgba(250,89,107,.28) !important; background: rgba(250,89,107,.09) !important; }
+    #solution .solution-card .icon-box { color: var(--zw-electric) !important; border-color: rgba(41,121,255,.28) !important; background: rgba(41,121,255,.09) !important; }
+    #solution .solution-card .icon-box .zw-icon { width: 24px; height: 24px; }
+    .circuit-frame { position: relative; isolation: isolate; }
+    .hero-grid { grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); gap: clamp(20px,2.8vw,45px); }
+    #hero-heading { font-size:clamp(56px,6.2vw,86px); }
+    .hero-visual { width:80%; justify-self:center; }
+    .circuit-frame img { aspect-ratio: 16 / 9; object-position: center; }
+    .circuit-traces { position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none; opacity:.65; }
+    .circuit-traces path { fill:none; stroke-width:2.2; stroke-linejoin:round; stroke-linecap:round; stroke-dasharray:24 1100; filter:drop-shadow(0 0 4px currentColor); }
+    .circuit-traces .trace-blue { stroke:#68c9ff; color:#4aabff; animation: trace-forward 7.5s ease-in-out infinite alternate; }
+    .circuit-traces .trace-purple { stroke:#a18cff; color:#8a6fff; animation: trace-backward 8.4s ease-in-out infinite alternate; }
+    .circuit-traces .trace-orange { stroke:#ffbf9b; color:#ff9b70; animation: trace-forward 9.1s ease-in-out infinite alternate-reverse; }
+    @keyframes trace-forward { from { stroke-dashoffset:70; opacity:.3; } to { stroke-dashoffset:-340; opacity:.75; } }
+    @keyframes trace-backward { from { stroke-dashoffset:-390; opacity:.75; } to { stroke-dashoffset:35; opacity:.3; } }
+    .comparison-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:17px; }
+    .comparison-card { position:relative; padding:26px; border:1px solid rgba(83,149,237,.25); border-radius:20px; background:linear-gradient(145deg,rgba(25,53,91,.58),rgba(7,20,40,.94)); transition: transform .25s,border-color .25s,box-shadow .25s; }
+    .comparison-card:hover { transform:translateY(-5px); border-color:rgba(98,160,255,.58); box-shadow:0 14px 35px rgba(8,28,68,.32); }
+    .comparison-label { display:inline-flex; font-size:10px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; margin-bottom:10px; }
+    .comparison-problem { color:#ff91a1; }
+    .comparison-solution { color:#7cb9ff; }
+    .comparison-card h3 { font-size:20px; margin:0 0 9px; color:#f7faff; }
+    .comparison-card p { color:#b4c6dc; font-size:14px; line-height:1.65; margin:0; }
+    .comparison-divider { height:1px; background:linear-gradient(90deg,rgba(89,151,249,.5),transparent); margin:20px 0; }
+    .comparison-card .solution-title { color:#bad8ff; font-size:16px; font-weight:700; margin-bottom:7px; }
+    .solution-anchor { scroll-margin-top:105px; }
+    .circuit-frame::after { content:none; }
+    .zw-split-heading { margin: 34px 0 22px; font-size:clamp(23px,2.8vw,32px); color:#f4f8ff; }
+    .zw-split-heading.problem-title { color:#ff8292; }
+    .zw-split-heading.solution-title { color:#82b6ff; margin-top:52px; }
+    .zw-group-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
+    .zw-group-grid .info-card { height:100%; }
+    .zw-group-grid .icon-box { display:grid; place-items:center; font-size:22px; }
+    .zw-group-grid.problem-group .icon-box { color:#ff7588; border-color:rgba(250,89,107,.32); background:rgba(250,89,107,.1); }
+    .zw-group-grid.solution-group .icon-box { color:#2979FF !important; border-color:rgba(41,121,255,.34); background:rgba(41,121,255,.12); }
+    .zw-group-grid.solution-group .icon-box .zw-icon { width:24px; height:24px; stroke:#2979FF; }
+    .zw-group-grid.solution-group h3, .zw-split-heading.solution-title { color:#2979FF !important; }
+    .solution-grid .solution-card .icon-box, .solution-grid .solution-card h3 { color:#2979FF !important; }
+    .solution-grid .solution-card:nth-child(3) .icon-box { color:#2979FF !important; border-color:rgba(41,121,255,.34) !important; background:rgba(41,121,255,.12) !important; }
+    .zw-industry-symbol { display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center; vertical-align:middle; margin-right:7px; color:#9dcbff; }
+    .zw-industry-symbol svg { width:26px; height:26px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .zw-industry-symbol.hospital svg { width:29px; height:29px; }
+    .zw-industry-symbol.hospital .medical-cross { stroke-width:3.5; }
+    @media(max-width:900px) { .zw-group-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:600px) { .zw-group-grid { grid-template-columns:1fr; } }
+    .steps.zw-flow { display:grid !important; grid-template-columns: repeat(5,minmax(0,1fr)); gap:12px !important; margin:1.25rem 0 0; padding:0; list-style:none; counter-reset:none; }
+    .steps.zw-flow li { position:relative; display:flex !important; flex-direction:column; align-items:flex-start; gap:10px; min-width:0; padding:20px 16px !important; border:1px solid rgba(84,135,243,.24); border-radius:16px; background:linear-gradient(150deg,rgba(38,86,169,.19),rgba(8,21,45,.65)); box-shadow:0 8px 24px rgba(0,0,0,.13); }
+    .steps.zw-flow li:not(:last-child)::after { content:'→'; position:absolute; z-index:2; top:48%; right:-15px; font-size:22px; color:#6faaff; text-shadow:0 0 10px #2979ff; }
+    .steps.zw-flow .step-number { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:36px; height:36px; border-radius:11px; background:rgba(41,121,255,.2); color:#86bdff; border:1px solid rgba(80,158,255,.35); font-size:13px; font-weight:700; }
+    .steps.zw-flow .step-title { font-weight:700; line-height:1.35; color:#f4f8ff; }
+    .steps.zw-flow .step-desc { font-size:13px; line-height:1.55; color:#aabbd4; }
+    @media (min-width:821px) and (max-width:1100px) { .nav-links { display:none; position:absolute; top:80px; left:0; right:0; flex-direction:column; align-items:stretch; gap:6px; background:#071527; border-bottom:1px solid rgba(129,180,231,.2); padding:17px 28px 22px; } .nav-links.open { display:flex; } .nav-links a { padding:8px 0; } .menu-toggle { display:inline-flex; margin-left:auto; } .btn-header { display:none; } }
+    @media (max-width: 1000px) { .steps.zw-flow { grid-template-columns: repeat(2,minmax(0,1fr)); } .steps.zw-flow li::after { display:none; } }
+    @media (max-width: 560px) { .steps.zw-flow { grid-template-columns: 1fr; } .hero-trust .trust-item { margin-bottom: .35rem; } }
+    .zw-section { padding:clamp(64px,7vw,100px) 0; }
+    .zw-section .section-heading { margin-bottom:34px; }
+    .zw-card-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .zw-card { border:1px solid rgba(100,151,239,.2); border-radius:20px; padding:26px; background:linear-gradient(145deg,rgba(31,65,124,.18),rgba(6,17,36,.72)); box-shadow:0 14px 34px rgba(0,0,0,.1); }
+    .zw-card h3 { margin:14px 0 10px; font-size:19px; color:#fff; }
+    .zw-card p { color:#b7c8df; line-height:1.7; font-size:14px; }
+    .zw-card .zw-card-tag { display:inline-flex; font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:#84b9ff; border:1px solid rgba(80,150,255,.3); background:rgba(37,102,214,.13); padding:7px 10px; border-radius:20px; }
+    .zw-foundation { display:grid; grid-template-columns:1.1fr .9fr; gap:30px; align-items:center; }
+    .zw-foundation h2 { font-size:clamp(28px,3.5vw,46px); line-height:1.13; margin:12px 0 16px; }
+    .zw-foundation p { color:#bdcde0; line-height:1.8; }
+    .zw-founder-panel { border:1px solid rgba(73,138,255,.3); background:radial-gradient(circle at top left,rgba(42,96,213,.23),transparent 65%),#07172b; border-radius:22px; padding:30px; }
+    .zw-founder-panel .zw-monogram { display:grid; place-items:center; width:62px; height:62px; border-radius:18px; background:rgba(41,121,255,.17); color:#98c9ff; font:700 22px 'Space Grotesk',sans-serif; border:1px solid rgba(99,159,255,.3); }
+    .zw-founder-panel h3 { margin:20px 0 5px; color:#fff; font-size:23px; }
+    .zw-founder-panel small { color:#8fbcff; font-weight:700; }
+    .zw-stage-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:28px; }
+    .zw-stage { padding:22px 18px; border:1px solid rgba(90,150,244,.23); background:#081a31; border-radius:16px; }
+    .zw-stage strong { display:block; color:#eaf3ff; margin:8px 0; }
+    .zw-stage p { margin:0; font-size:13px; color:#aebed4; line-height:1.6; }
+    .zw-stage-number { color:#76afff; font:700 13px 'Space Grotesk',sans-serif; }
+    .zw-demo-notice { font-size:13px; padding:13px 16px; border:1px solid rgba(100,155,244,.24); border-radius:12px; color:#b4c9e4; background:rgba(41,121,255,.07); margin-top:16px; }
+    .zw-faq { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .zw-faq details { border:1px solid rgba(100,151,239,.2); border-radius:14px; background:rgba(12,31,57,.65); padding:20px; }
+    .zw-faq summary { cursor:pointer; color:#f2f7ff; font-weight:700; }
+    .zw-faq details p { color:#aec1d9; line-height:1.7; font-size:14px; margin:12px 0 0; }
+    @media(max-width:900px) { .zw-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .zw-foundation { grid-template-columns:1fr; } .zw-stage-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .hero-grid {grid-template-columns:1fr;} }
+    @media(max-width:600px) { .zw-card-grid,.zw-faq,.zw-stage-grid,.comparison-grid { grid-template-columns:1fr; } .zw-card { padding:22px; } .comparison-card {padding:21px;} }
+    @media (prefers-reduced-motion: reduce) { .eyebrow-dot::before, .eyebrow-dot::after, .visual-overlay .live-dot::before, .visual-overlay .live-dot::after, .btn-solution, .circuit-traces path { animation: none !important; } .circuit-traces { opacity:.25; } }
+  </style>
   <script defer src="main.js"></script>
 </head>
 <body>
@@ -27,12 +130,13 @@
         <span class="brand-sub">CONVERSATIONS WITHOUT DELAYS</span>
       </a>
       <nav class="nav-links" id="main-menu" aria-label="Main navigation">
-        <a href="#problem">The Problem</a>
-        <a href="#solution">Solutions</a>
+        <a href="#problem">Problems &amp; Solutions</a>
+        <a href="#industries">Industries</a>
         <a href="#process">How It Works</a>
-        <a href="#book">Book a Call</a>
+        <a href="#about">About Us</a>
+        <a href="#demo">See Demo</a>
       </nav>
-      <a class="btn btn-glow btn-header" href="#book"><span>Book a Call <span aria-hidden="true">↗</span></span></a>
+      <a class="btn btn-glow btn-header" href="#book"><span>Book a 1:1 Call with Zainab <span aria-hidden="true">↗</span></span></a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Open navigation menu">
         <span aria-hidden="true">☰</span>
       </button>
@@ -45,21 +149,28 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Intelligent customer experience automation</p>
-          <h1 id="hero-heading">Never Miss a <span class="text-gradient">Customer Conversation.</span></h1>
-          <p class="hero-lead">Turn every customer interaction into an opportunity. Intelligent voice agents, AI chatbots, and automated booking designed to make business communication faster, simpler, and more human.</p>
+          <h1 id="hero-heading">Every Customer Conversation <span class="hero-title-blue">Instantly Answered.</span></h1>
+          <p class="hero-lead">AI voice and chat agents help your business respond to routine inquiries, capture leads, and route complex requests to the right person—even outside office hours.</p>
           <div class="hero-actions">
-            <a class="btn btn-glow" href="#book"><span>Book a Free Consultation <span aria-hidden="true">↗</span></span></a>
-            <a class="btn btn-outline" href="#solution">Explore Our Solutions <span aria-hidden="true">→</span></a>
+            <a class="btn btn-glow" href="#book"><span>Book a 1:1 Call with Zainab <span aria-hidden="true">↗</span></span></a>
+            <a class="btn btn-glow" href="#solution"><span>Explore Solutions <span aria-hidden="true">→</span></span></a>
           </div>
           <div class="hero-trust" aria-label="Service highlights">
-            <span><span class="check" aria-hidden="true">✓</span> Designed for 24/7 support</span>
-            <span><span class="check" aria-hidden="true">✓</span> Voice & chat</span>
-            <span><span class="check" aria-hidden="true">✓</span> Human handoffs</span>
+            <span class="trust-item"><span class="trust-icon" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> Around-the-clock responses</span>
+            <span class="trust-item"><span class="trust-icon" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span> Calls and messages, handled</span>
+            <span class="trust-item"><span class="trust-icon" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><circle cx="7" cy="6" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="7" cy="18" r="2"/><path d="M9 6h4l3 4M9 18h4l3-4"/></svg></span> Smart Human Handoffs</span>
           </div>
         </div>
         <div class="hero-visual">
           <div class="circuit-frame">
             <img src="assets/zerowait-circuit-hero.webp" alt="Fine blue, violet, and terracotta motherboard circuits converging on an AI microchip, with subtle branching neural connections" width="1672" height="941" fetchpriority="high">
+            <svg class="circuit-traces" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+              <path class="trace-blue" d="M720 435 H970 L1018 482 H1140 L1160 463 H1230"/>
+              <path class="trace-orange" d="M832 463 H965 L1004 503 H1162 L1184 482 H1234"/>
+              <path class="trace-purple" d="M1004 275 H1190 V400 L1234 437"/>
+              <path class="trace-blue" d="M1351 452 H1516 L1586 522 H1672"/>
+              <path class="trace-purple" d="M1345 525 V607 L1385 655 V722"/>
+            </svg>
             <div class="visual-overlay" aria-hidden="true">
               <span class="live-dot"></span>
               <span>CONNECTED INTELLIGENCE</span>
@@ -76,44 +187,117 @@
     <section class="section" id="problem" aria-labelledby="problem-heading">
       <div class="wrap">
         <div class="section-heading">
-          <p class="kicker">01 / The Challenge</p>
-          <h2 id="problem-heading">Every missed conversation is a <span class="text-gradient">missed opportunity.</span></h2>
-          <p>When customers are left waiting, businesses lose more than time. They risk trust, revenue, and the chance to make a great first impression.</p>
+          <p class="kicker">Problems &amp; Solutions</p>
+          <h2 id="problem-heading">Real customer frustrations. <span class="text-gradient">Practical AI solutions.</span></h2>
+          <p>See how ZeroWait AI can address common communication bottlenecks.</p>
         </div>
-        <div class="problem-grid">
-          <article class="info-card"><span class="icon-box" aria-hidden="true">☎</span><h3>Missed Calls</h3><p>Customers cannot always reach your business when they need answers.</p></article>
-          <article class="info-card"><span class="icon-box" aria-hidden="true">◷</span><h3>Long Wait Times</h3><p>Extended holds and slow replies frustrate potential customers.</p></article>
-          <article class="info-card"><span class="icon-box" aria-hidden="true">⇄</span><h3>Repeated Transfers</h3><p>Being passed between departments can make a simple request difficult.</p></article>
-          <article class="info-card"><span class="icon-box" aria-hidden="true">⚑</span><h3>Inconsistent Service</h3><p>Different answers and experiences can undermine customer confidence.</p></article>
-          <article class="info-card"><span class="icon-box" aria-hidden="true">?</span><h3>Unclear Guidance</h3><p>Incomplete information leads to confusion and unnecessary follow-up.</p></article>
+        <h3 class="zw-split-heading problem-title">The Problems</h3>
+        <div class="zw-group-grid problem-group">
+          <article class="info-card"><span class="icon-box" aria-hidden="true">☎</span><h3>Missed calls and messages</h3><p>Potential customers reach out but receive no timely reply.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true">◷</span><h3>Long hold times</h3><p>Customers wait through queues just to ask a simple question.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true">⇄</span><h3>Repeated transfers</h3><p>People explain the same issue again and again to different agents.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true">⚠</span><h3>Inconsistent answers</h3><p>Conflicting guidance makes customers question the service.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true">↪</span><h3>Lost follow-ups</h3><p>Important customer details and next steps can slip through the cracks.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true">⚑</span><h3>Service quality gaps</h3><p>Rushed or impersonal interactions leave people feeling unheard.</p></article>
+        </div>
+        <h3 id="solution" class="zw-split-heading solution-title solution-anchor">Our Solutions</h3>
+        <div class="zw-group-grid solution-group">
+          <article class="info-card"><span class="icon-box" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 2a16 16 0 0 0 4.5 4.5L15 13l5 2v4a2 2 0 0 1-2.1 2A17 17 0 0 1 3 6.1 2 2 0 0 1 5 4z"/></svg></span><h3>Always-ready first response</h3><p>AI agents can handle approved routine inquiries and capture details for follow-up.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 9-12h-6z"/></svg></span><h3>Instant routine assistance</h3><p>Frequently asked questions can be answered immediately, with an escalation path when needed.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6"/></svg></span><h3>Smarter human handoffs</h3><p>Capture the reason for contact and route complex matters with useful context.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg></span><h3>Approved knowledge base</h3><p>Provide consistent answers from business-reviewed information, with clear limits.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><h3>Actionable conversation summaries</h3><p>Where integrated, send teams the key request, contact details, outcome, and pending tasks.</p></article>
+          <article class="info-card"><span class="icon-box" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><path d="M20.8 4.8a5.5 5.5 0 0 0-7.8 0L12 5.9l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.4a5.5 5.5 0 0 0 0-7.8z"/></svg></span><h3>A more thoughtful experience</h3><p>Design respectful conversational responses and escalate sensitive matters to people.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="solution" aria-labelledby="solution-heading">
+    <section class="section section-alt" aria-labelledby="solution-heading">
       <div class="wrap">
         <div class="section-heading">
-          <p class="kicker">02 / The Solution</p>
-          <h2 id="solution-heading">Smarter conversations. <span class="text-gradient">Stronger connections.</span></h2>
-          <p>We design practical AI-powered customer communication tools around your business, your customers, and your existing workflows.</p>
+          <p class="kicker">Our Capabilities</p>
+          <h2 id="solution-heading">One connected <span class="text-gradient">customer experience.</span></h2>
+          <p>Choose the channels and workflows your business actually needs.</p>
         </div>
         <div class="solution-grid">
-          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true">◉</span><h3>AI Voice Agents</h3><p>Assist with routine calls, common questions, and routing requests that need a human team member.</p></article>
-          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true">▤</span><h3>AI Chatbots</h3><p>Offer helpful, natural responses to messages on websites and supported communication channels.</p></article>
-          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true">▦</span><h3>Appointment Booking</h3><p>Connect conversations to scheduling so interested customers can find the next available step.</p></article>
-          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true">≡</span><h3>Conversation Summaries</h3><p>Surface key details and follow-up tasks so your team can stay informed and respond thoughtfully.</p></article>
+          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true">◉</span><h3>AI Voice Agents</h3><p>Help answer frequent questions, collect essential caller details, and route complex calls so customers are not left waiting unnecessarily.</p></article>
+          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true"><svg class="zw-icon" viewBox="0 0 24 24"><path d="M4 5h16v12H9l-5 3z"/><path d="M8 9h8M8 13h5"/></svg></span><h3>AI Chatbots</h3><p>Guide website visitors, qualify new leads, and respond to supported customer messages with useful, business-specific information.</p></article>
+          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true">▦</span><h3>Appointment Booking</h3><p>Move qualified inquiries toward scheduled consultations or appointments using your connected booking workflow.</p></article>
+          <article class="info-card solution-card"><span class="icon-box" aria-hidden="true">≡</span><h3>Conversation Summaries</h3><p>Organize the main question, contact details, outcome, and next action for your team when the configured integration supports it.</p></article>
         </div>
         <div class="process-panel" id="process">
           <div class="process-heading">
-            <div><p class="kicker">03 / How It Works</p><h3>Simple for your customers. Smarter for your team.</h3></div>
+            <div><p class="kicker">How It Works</p><h3>Simple for your customers. Smarter for your team.</h3></div>
             <span class="process-chip">Built around your workflow</span>
           </div>
-          <ol class="steps">
-            <li><span class="step-number">01</span><span>Customer reaches out</span></li>
-            <li><span class="step-number">02</span><span>AI responds to the inquiry</span></li>
-            <li><span class="step-number">03</span><span>Request is handled or escalated</span></li>
-            <li><span class="step-number">04</span><span>Your team receives the details</span></li>
+          <ol class="steps zw-flow" aria-label="Five-step customer conversation workflow">
+            <li><span class="step-number">01</span><span class="step-title">Customer reaches out</span><span class="step-desc">A customer calls or sends a message.</span></li>
+            <li><span class="step-number">02</span><span class="step-title">AI responds instantly</span><span class="step-desc">The agent understands the inquiry and provides assistance.</span></li>
+            <li><span class="step-number">03</span><span class="step-title">Resolve or escalate</span><span class="step-desc">Routine queries are handled; complex ones reach your team.</span></li>
+            <li><span class="step-number">04</span><span class="step-title">Your team stays informed</span><span class="step-desc">Key details and action items are summarized.</span></li>
+            <li><span class="step-number">05</span><span class="step-title">Follow-ups stay on track</span><span class="step-desc">Leads and pending requests are ready for timely action.</span></li>
           </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section zw-section" id="industries" aria-labelledby="industries-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="kicker">Industry Use Cases</p>
+          <h2 id="industries-heading">Built for the conversations <span class="text-gradient">your business handles every day.</span></h2>
+          <p>Every industry has different questions and workflows. These are example applications we can explore and tailor together—not claims of completed client deployments.</p>
+        </div>
+        <div class="zw-card-grid">
+          <article class="zw-card"><span class="zw-card-tag"><span class="zw-industry-symbol hospital" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 25V8h18v17M3 25h22M10 25v-6h8v6"/><path class="medical-cross" d="M14 10v8M10 14h8"/></svg></span>Healthcare</span><h3>Patient inquiry support</h3><p>Share approved clinic information, guide appointment requests, and escalate sensitive or clinical questions to qualified staff.</p></article>
+          <article class="zw-card"><span class="zw-card-tag"><span class="zw-industry-symbol" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M4 25V4h14v21M18 12h6v13M2 25h24M8 9h2M13 9h2M8 14h2M13 14h2M8 19h2M13 19h2M21 16h1M21 20h1"/></svg></span>Real Estate</span><h3>Lead response &amp; viewings</h3><p>Respond to property inquiries, collect buyer or tenant preferences, and help schedule viewings with your team.</p></article>
+          <article class="zw-card"><span class="zw-card-tag"><span class="zw-industry-symbol" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 15v-2a9 9 0 0 1 18 0v2M5 15v6h4v-8H5v2M23 15v6h-4v-8h4v2M23 21c0 3-3 4-7 4h-2"/></svg></span>Customer Service</span><h3>High-volume inquiries</h3><p>Handle routine service questions, collect request details, and route complex issues to human support teams.</p></article>
+        </div>
+        <p class="zw-demo-notice">Each implementation depends on approved knowledge, the channels you use, and the availability of integrations and human escalation.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt zw-section" id="delivery" aria-labelledby="delivery-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="kicker">Working With ZeroWait AI</p>
+          <h2 id="delivery-heading">From first discussion <span class="text-gradient">to a tested workflow.</span></h2>
+          <p>A practical engagement process, with scope and feasibility agreed before implementation.</p>
+        </div>
+        <div class="zw-stage-grid">
+          <div class="zw-stage"><span class="zw-stage-number">01 · DISCOVER</span><strong>Understand your needs</strong><p>We identify frequent inquiries, missed opportunities, and existing support tools.</p></div>
+          <div class="zw-stage"><span class="zw-stage-number">02 · DESIGN</span><strong>Map the experience</strong><p>We plan approved responses, lead capture, handoffs, and integrations.</p></div>
+          <div class="zw-stage"><span class="zw-stage-number">03 · TEST</span><strong>Try a focused prototype</strong><p>We check realistic questions, fallback behavior, and the customer journey.</p></div>
+          <div class="zw-stage"><span class="zw-stage-number">04 · LAUNCH</span><strong>Deploy &amp; improve</strong><p>After approval, we review performance and refine the agreed workflow.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section zw-section" id="about" aria-labelledby="about-heading">
+      <div class="wrap zw-foundation">
+        <div>
+          <p class="kicker">About ZeroWait AI</p>
+          <h2 id="about-heading">Technology designed around <span class="text-gradient">real human conversations.</span></h2>
+          <p>ZeroWait AI is an emerging customer-experience automation business focused on clear communication, practical workflows, and thoughtful human handoffs.</p>
+          <p>We are building tailored AI solutions for organizations that want to reduce routine communication bottlenecks without losing the human touch. Every proposal begins with the realities of your team and customers.</p>
+        </div>
+        <aside class="zw-founder-panel" aria-label="Founder introduction">
+          <div class="zw-monogram" aria-hidden="true">ZA</div>
+          <h3>Dr. Zainab Afzal</h3>
+          <small>Founder · ZeroWait AI</small>
+          <p>With a background in medicine and frontline service environments, Zainab brings a customer-centered perspective to communication challenges—particularly the importance of clarity, responsiveness, and knowing when a human should step in.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt zw-section" id="faq" aria-labelledby="faq-heading">
+      <div class="wrap">
+        <div class="section-heading"><p class="kicker">Frequently Asked Questions</p><h2 id="faq-heading">The essentials, <span class="text-gradient">clearly explained.</span></h2></div>
+        <div class="zw-faq">
+          <details><summary>Will AI replace our customer service team?</summary><p>The goal is to support your team with routine inquiries and better routing. Human review and escalation remain essential for complex, sensitive, or unusual situations.</p></details>
+          <details><summary>Can this work with our current systems?</summary><p>It depends on your communication channels, existing tools, permissions, and available integrations. We assess compatibility during discovery before recommending an implementation.</p></details>
+          <details><summary>How do you handle customer information?</summary><p>Data access, retention, permissions, and any third-party services must be agreed for each project. Sensitive workflows require appropriate safeguards and a clear human escalation policy.</p></details>
+          <details><summary>How much does a project cost?</summary><p>Pricing depends on call or message volume, integrations, scope, and ongoing support. We discuss your requirements before proposing a tailored quote.</p></details>
         </div>
       </div>
     </section>
@@ -121,28 +305,27 @@
     <section class="section connect-section" id="demo" aria-labelledby="connect-heading">
       <div class="wrap">
         <div class="section-heading">
-          <p class="kicker">04 / Let's Connect</p>
+          <p class="kicker">Let's Connect</p>
           <h2 id="connect-heading">Let's make every <span class="text-gradient">conversation count.</span></h2>
           <p>Explore how intelligent customer engagement could work for your business.</p>
         </div>
         <div class="connect-grid">
           <div class="feature-panel demo-panel">
             <span class="panel-icon" aria-hidden="true">✦</span>
-            <h3>See what's possible.</h3>
-            <p>From first inquiry to a successful handoff, your customer experience can feel simpler and more connected.</p>
+            <h3>Experience the future of customer support.</h3>
+            <p>We're refining the agent's voice, personality, and conversation flow before sharing the demonstration.</p>
             <div class="demo-preview">
-              <span class="demo-play" aria-hidden="true">▶</span>
-              <strong>AI Agent Demo</strong>
-              <small>Your video demonstration is coming soon.</small>
+              <span class="demo-play" aria-hidden="true">✦</span>
+              <strong>DEMO COMING SOON</strong>
+              <small>A genuine voice-and-chat demonstration is on its way.</small>
             </div>
-            <p class="panel-note">Interested in a live walkthrough? Let's discuss your use case.</p>
-            <a class="btn btn-glow booking-link" href="#book"><span>Schedule a Conversation <span aria-hidden="true">↗</span></span></a>
+            <p class="panel-note">We'll publish the video here after the agent has been tested and approved.</p>
           </div>
           <div class="feature-panel booking-panel" id="book">
             <div class="booking-label"><span class="live-dot" aria-hidden="true"></span> FREE INTRODUCTORY CONSULTATION</div>
-            <h3>Book your 30-minute discovery call.</h3>
+            <h3>Book a 1:1 call with Zainab.</h3>
             <p>Tell us what your business needs. We'll explore where AI voice, chat, and automation might make a meaningful difference.</p>
-            <a class="btn btn-glow booking-link" href="https://calendly.com/zainabshahafzal/free-ai-consultation" target="_blank" rel="noopener noreferrer"><span>Book an Appointment <span aria-hidden="true">↗</span></span></a>
+            <a class="btn btn-glow booking-link" href="https://calendly.com/zainabshahafzal/free-ai-consultation" target="_blank" rel="noopener noreferrer"><span>Book a 1:1 Call with Zainab <span aria-hidden="true">↗</span></span></a>
             <div class="calendar-frame">
               <iframe title="ZeroWait AI free 30-minute consultation calendar" loading="lazy" src="https://calendly.com/zainabshahafzal/free-ai-consultation" allow="fullscreen"></iframe>
             </div>
@@ -162,7 +345,9 @@
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#solution">Our Solutions</a>
-        <a href="#book">Book a Call</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About Us</a>
+        <a href="#book">Book a 1:1 Call with Zainab</a>
         <a href="terms.html">Terms & Conditions</a>
         <a href="privacy.html">Privacy Policy</a>
       </nav>

@@ -1,0 +1,31 @@
+ZeroWait AI — Complete Website V7
+
+WHAT CHANGED
+- Added See Demo to the top navigation, linking to the demonstration section.
+- Removed the duplicate plain-text booking link from the top navigation.
+- Added an electric-blue hover glow, underline, and subtle upward lift to navigation links.
+- Paired common customer problems with their corresponding AI solutions.
+- Enlarged the original microchip visual and added seven gently pulsing circuit lights.
+- Removed slashes from Discover, Design, Test, and Launch numbering.
+- Removed redundant booking actions in About and Demo.
+- Replaced the faux demo player with a clear Coming Soon treatment.
+- Preserved the approved hero headline, animated booking buttons, Calendly link, and remaining sections.
+
+HOW TO PREVIEW ON WINDOWS
+1. Right-click the downloaded ZIP and choose Extract All.
+2. Open the newly extracted folder.
+3. Make sure index.html, styles.css, main.js, and the assets folder are together.
+4. Double-click index.html (not the ZIP itself).
+5. If you see plain text and blue underlined links, styles.css is not alongside the HTML file. Re-extract the entire ZIP into one folder.
+
+HOW TO PUBLISH
+Upload the CONTENTS of this folder to the root of your existing GitHub Pages repository.
+Retain the folder structure, especially assets/.
+Do not upload just index.html or just the ZIP as the website's home page.
+
+WHAT IS NOT COMPLETE YET
+- The demonstration video is a clearly labeled placeholder until Zainab supplies it.
+- The chatbot platform's actual behavior and embed must be configured and tested separately.
+- A verified business email/social contact should be added when Zainab provides one.
+- No customer results, case studies, or testimonials have been invented.
+- Website preview from local files does not guarantee live integrations such as Calendly will load offline.

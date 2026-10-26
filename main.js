@@ -27,20 +27,3 @@ if (menuButton && menu) {
     if (event.key === "Escape") closeMenu();
   });
 }
-
-// Keep the existing public Chatwoot website inbox connected across all pages.
-// This website token identifies the inbox; it is not a private API key.
-window.chatwootSettings = { position: "right", type: "standard", launcherTitle: "" };
-const chatwootBaseUrl = "https://crm.secondbrainos.com";
-const chatwootScript = document.createElement("script");
-chatwootScript.src = `${chatwootBaseUrl}/packs/js/sdk.js`;
-chatwootScript.async = true;
-chatwootScript.addEventListener("load", () => {
-  if (window.chatwootSDK) {
-    window.chatwootSDK.run({
-      websiteToken: "8xtmbZRGHQB9qHDsBubQb9Em",
-      baseUrl: chatwootBaseUrl,
-    });
-  }
-});
-document.head.appendChild(chatwootScript);
